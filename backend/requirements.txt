@@ -4,3 +4,4 @@ sqlalchemy
 pydantic
 pydantic[email]
 python-multipart
+pydantic-settings

@@ -2,7 +2,7 @@
 
 ```
 social-networking-app/
-├── frontend/                    # Next.js Frontend
+├── frontend/
 │   ├── app/
 │   │   ├── layout.tsx
 │   │   ├── page.tsx
@@ -14,28 +14,28 @@ social-networking-app/
 │   │   └── friends/
 │   │       └── page.tsx
 │   ├── components/
-│   │   ├── ui/                 # Shadcn components
+│   │   ├── ui/
 │   │   ├── PostCard.tsx
 │   │   ├── CommentSection.tsx
 │   │   ├── ProfileCard.tsx
 │   │   └── FriendsList.tsx
 │   ├── lib/
-│   │   ├── api.ts              # API client
+│   │   ├── api.ts
 │   │   └── utils.ts
 │   ├── public/
 │   ├── package.json
 │   ├── tsconfig.json
 │   ├── tailwind.config.ts
-│   ├── components.json         # Shadcn config
+│   ├── components.json
 │   └── next.config.js
 │
-├── backend/                     # FastAPI Backend
+├── backend/
 │   ├── app/
 │   │   ├── __init__.py
-│   │   ├── main.py             # FastAPI app entry
-│   │   ├── database.py         # SQLAlchemy setup
-│   │   ├── models.py           # Database models
-│   │   ├── schemas.py          # Pydantic schemas
+│   │   ├── main.py
+│   │   ├── database.py
+│   │   ├── models.py
+│   │   ├── schemas.py
 │   │   └── routes/
 │   │       ├── __init__.py
 │   │       ├── users.py
@@ -44,28 +44,28 @@ social-networking-app/
 │   │       └── friends.py
 │   ├── requirements.txt
 │   ├── .env
-│   └── database.db             # SQLite database (generated)
+│   └── database.db
 │
-└── project-structure.md         # This file
+└── project-structure.md
 ```
 
 ## Tech Stack
 
 ### Frontend
-- **Next.js 14+** - React framework with App Router
-- **TypeScript** - Type safety
-- **Shadcn/ui** - Component library
-- **Tailwind CSS** - Styling
+- **Next.js 14+**
+- **TypeScript**
+- **Shadcn/ui**
+- **Tailwind CSS**
 
 ### Backend
-- **FastAPI** - Python web framework
-- **SQLite** - Database
-- **SQLAlchemy** - ORM
-- **Pydantic** - Data validation
+- **FastAPI**
+- **SQLite**
+- **SQLAlchemy**
+- **Pydantic**
 
 ## Core Features
-- User profiles (CRUD)
-- Posts (create, read, update, delete)
+- User profiles
+- Posts
 - Comments on posts
 - Friend connections
 - News feed/timeline
