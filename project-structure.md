@@ -6,6 +6,7 @@ social-networking-app/
 │   ├── app/
 │   │   ├── layout.tsx
 │   │   ├── page.tsx
+│   │   ├── globals.css
 │   │   ├── profile/
 │   │   │   └── [id]/
 │   │   │       └── page.tsx
@@ -13,21 +14,37 @@ social-networking-app/
 │   │   │   └── page.tsx
 │   │   └── friends/
 │   │       └── page.tsx
-│   ├── components/
-│   │   ├── ui/
-│   │   ├── PostCard.tsx
-│   │   ├── CommentSection.tsx
-│   │   ├── ProfileCard.tsx
-│   │   └── FriendsList.tsx
-│   ├── lib/
-│   │   ├── api.ts
-│   │   └── utils.ts
+│   ├── features/
+│   │   ├── auth/
+│   │   ├── posts/
+│   │   │   ├── components/
+│   │   │   │   ├── PostCard.tsx
+│   │   │   │   └── CreatePost.tsx
+│   │   │   └── hooks/
+│   │   ├── comments/
+│   │   │   └── components/
+│   │   │       └── CommentSection.tsx
+│   │   ├── profile/
+│   │   │   └── components/
+│   │   │       └── ProfileCard.tsx
+│   │   └── friends/
+│   │       └── components/
+│   │           └── FriendsList.tsx
+│   ├── shared/
+│   │   ├── components/
+│   │   │   └── ui/
+│   │   ├── lib/
+│   │   │   ├── api.ts
+│   │   │   └── utils.ts
+│   │   └── hooks/
+│   ├── types/
+│   │   └── global.d.ts
 │   ├── public/
 │   ├── package.json
 │   ├── tsconfig.json
 │   ├── tailwind.config.ts
 │   ├── components.json
-│   └── next.config.js
+│   └── next.config.ts
 │
 ├── backend/
 │   ├── app/
