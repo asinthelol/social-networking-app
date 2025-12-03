@@ -10,7 +10,7 @@ from app.database import get_db
 from app.models import User
 from app.schemas import UserResponse, FriendRequest
 
-router = APIRouter(prefix="/friends", tags=["friends"])
+router = APIRouter()
 
 
 @router.get("/{user_id}")

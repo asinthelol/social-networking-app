@@ -6,7 +6,7 @@ from fastapi import APIRouter, UploadFile, File, HTTPException
 
 from app.upload_utils import save_upload_file, delete_upload_file
 
-router = APIRouter(prefix="/upload", tags=["upload"])
+router = APIRouter()
 
 
 @router.post("/profile-picture")
@@ -21,7 +21,7 @@ async def upload_profile_picture(
         filename = await save_upload_file(file, upload_type="profile")
         return {
             "filename": filename,
-            "url": f"/uploads/profile_pictures/{filename}"
+            "file_url": f"/uploads/profile_pictures/{filename}"
         }
     except HTTPException:
         raise
@@ -44,7 +44,7 @@ async def upload_post_image(
         filename = await save_upload_file(file, upload_type="post")
         return {
             "filename": filename,
-            "url": f"/uploads/post_images/{filename}"
+            "file_url": f"/uploads/post_images/{filename}"
         }
     except HTTPException:
         raise

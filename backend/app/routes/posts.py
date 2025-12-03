@@ -10,7 +10,7 @@ from app.database import get_db
 from app.models import Post, User
 from app.schemas import PostCreate, PostUpdate, PostResponse, PostWithComments
 
-router = APIRouter(prefix="/posts", tags=["posts"])
+router = APIRouter()
 
 
 @router.get("/")

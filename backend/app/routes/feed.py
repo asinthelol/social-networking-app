@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models import User, Post
 
-router = APIRouter(prefix="/feed", tags=["feed"])
+router = APIRouter()
 
 
 @router.get("/{user_id}")

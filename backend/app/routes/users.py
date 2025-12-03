@@ -10,7 +10,7 @@ from app.database import get_db
 from app.models import User
 from app.schemas import UserCreate, UserUpdate, UserResponse, UserWithFriends
 
-router = APIRouter(prefix="/users", tags=["users"])
+router = APIRouter()
 
 
 @router.get("/")

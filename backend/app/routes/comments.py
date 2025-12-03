@@ -10,7 +10,7 @@ from app.database import get_db
 from app.models import Comment, Post, User
 from app.schemas import CommentCreate, CommentResponse
 
-router = APIRouter(prefix="/comments", tags=["comments"])
+router = APIRouter()
 
 
 @router.get("/post/{post_id}")
