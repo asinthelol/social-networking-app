@@ -137,9 +137,6 @@ export function RegisterForm() {
               Sign in
             </Link>
           </div>
-          <div className="text-xs text-muted-foreground text-center">
-            Note: Authentication is not required for this project
-          </div>
         </CardFooter>
       </Card>
     </div>

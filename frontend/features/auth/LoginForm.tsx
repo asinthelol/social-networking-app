@@ -108,9 +108,6 @@ export function LoginForm() {
               Sign up
             </Link>
           </div>
-          <div className="text-xs text-muted-foreground text-center">
-            Note: Authentication is not required for this project
-          </div>
         </CardFooter>
       </Card>
     </div>
