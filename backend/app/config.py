@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     APP_NAME: str = "Zephyr Social Network"
     DEBUG: bool = False
     
-    # Database
+    # Database (SQLite for dev, MySQL for production)
     DATABASE_URL: str = "sqlite:///./database.db"
     
     # CORS
