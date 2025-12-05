@@ -109,7 +109,7 @@ export default function UserProfilePage() {
 
         <ProfileTabs activeTab={activeTab} onTabChange={setActiveTab} />
 
-        {activeTab === "posts" && <PostsTab />}
+        {activeTab === "posts" && userId && <PostsTab userId={userId} username={userData.username} />}
         {activeTab === "friends" && <OtherUserFriends friends={friends} />}
       </div>
     </div>

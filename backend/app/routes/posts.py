@@ -3,7 +3,7 @@ Post routes
 """
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from typing import List
 
 from app.database import get_db
@@ -24,7 +24,7 @@ def get_all_posts(
     """
     
     try:
-        posts = db.query(Post).order_by(Post.created_at.desc()).offset(skip).limit(limit).all()
+        posts = db.query(Post).options(joinedload(Post.author)).order_by(Post.created_at.desc()).offset(skip).limit(limit).all()
         return posts
     except Exception as e:
         raise HTTPException(
@@ -43,7 +43,7 @@ def get_post(
     """
     
     try:
-        post = db.query(Post).filter(Post.id == post_id).first()
+        post = db.query(Post).options(joinedload(Post.author)).filter(Post.id == post_id).first()
         if not post:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
@@ -78,7 +78,7 @@ def get_user_posts(
                 detail=f"User with id {user_id} not found"
             )
         
-        posts = db.query(Post).filter(Post.user_id == user_id).order_by(Post.created_at.desc()).offset(skip).limit(limit).all()
+        posts = db.query(Post).options(joinedload(Post.author)).filter(Post.user_id == user_id).order_by(Post.created_at.desc()).offset(skip).limit(limit).all()
         return posts
     except HTTPException:
         raise

@@ -3,9 +3,15 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAppSelector, useAppDispatch } from "@/shared/store/hooks";
-import { getUser, updateUser, deleteUser, uploadProfilePicture, UserResponse } from "@/shared/lib/api/";
+import { UserResponse } from "@/shared/lib/api/";
 import { logout } from "@/shared/store/authSlice";
 import { ProfileHeader, ProfileTabs, PostsTab, FriendsTab, AccountTab } from "@/features/profile";
+import {
+  fetchUserProfile,
+  handleProfilePictureUpload,
+  handleUserUpdate,
+  handleAccountDeletion,
+} from "@/features/profile/lib";
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -15,6 +21,7 @@ export default function ProfilePage() {
   const [userData, setUserData] = useState<UserResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [mounted, setMounted] = useState(false);
 
   // Form state
   const [formData, setFormData] = useState({
@@ -24,6 +31,12 @@ export default function ProfilePage() {
   });
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     if (!isLoggedIn) {
       router.push("/login");
       return;
@@ -32,41 +45,32 @@ export default function ProfilePage() {
     if (userId) {
       fetchUserData();
     }
-  }, [isLoggedIn, userId, router]);
+  }, [mounted, isLoggedIn, userId, router]);
 
   const fetchUserData = async () => {
     if (!userId) return;
 
-    try {
-      const data = await getUser(userId);
-      setUserData(data);
-      setFormData({
-        username: data.username,
-        email: data.email,
-        bio: data.bio || "",
-      });
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load user data");
-    }
+    await fetchUserProfile(
+      userId,
+      (data) => {
+        setUserData(data);
+        setFormData({
+          username: data.username,
+          email: data.email,
+          bio: data.bio || "",
+        });
+      },
+      setError
+    );
   };
 
   const handleProfilePictureChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      try {
-        setIsLoading(true);
-        const result = await uploadProfilePicture(file);
-        
-        if (userId) {
-          await updateUser(userId, { profile_picture: result.file_url });
-          await fetchUserData();
-        }
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to upload profile picture");
-      } finally {
-        setIsLoading(false);
-      }
-    }
+    if (!file || !userId) return;
+
+    setIsLoading(true);
+    await handleProfilePictureUpload(file, userId, fetchUserData, setError);
+    setIsLoading(false);
   };
 
   const handleFormChange = (field: "username" | "email" | "bio", value: string) => {
@@ -77,38 +81,32 @@ export default function ProfilePage() {
     e.preventDefault();
     if (!userId) return;
 
-    try {
-      setIsLoading(true);
-      setError("");
-      await updateUser(userId, {
-        username: formData.username,
-        email: formData.email,
-        bio: formData.bio,
-      });
-      await fetchUserData();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to save changes");
-    } finally {
-      setIsLoading(false);
-    }
+    setIsLoading(true);
+    setError("");
+    await handleUserUpdate(userId, formData, fetchUserData, setError);
+    setIsLoading(false);
   };
 
   const handleDeleteAccount = async () => {
     if (!userId) return;
-    if (!confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
-      return;
-    }
 
-    try {
-      setIsLoading(true);
-      await deleteUser(userId);
-      dispatch(logout());
-      router.push("/login");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to delete account");
+    setIsLoading(true);
+    const success = await handleAccountDeletion(
+      userId,
+      () => {
+        dispatch(logout());
+        router.push("/login");
+      },
+      setError
+    );
+    if (!success) {
       setIsLoading(false);
     }
   };
+
+  if (!mounted) {
+    return null;
+  }
 
   const handleLogout = () => {
     dispatch(logout());
@@ -129,7 +127,7 @@ export default function ProfilePage() {
           onTabChange={setActiveTab}
         />
 
-        {activeTab === "posts" && <PostsTab />}
+        {activeTab === "posts" && userId && <PostsTab userId={userId} />}
 
         {activeTab === "friends" && userId && <FriendsTab userId={userId} />}
 
