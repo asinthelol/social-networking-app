@@ -85,7 +85,11 @@ def create_user(
                 detail="Email already exists"
             )
         
-        db_user = User(**user.model_dump())
+        # Create user with default profile picture
+        user_data = user.model_dump()
+        user_data['profile_picture'] = "/uploads/profile_pictures/default.jpg"
+        
+        db_user = User(**user_data)
         db.add(db_user)
         db.commit()
         db.refresh(db_user)

@@ -2,8 +2,9 @@
 
 import { Card } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
-import { User, UserPlus, UserMinus, Loader2 } from "lucide-react";
+import { UserPlus, UserMinus, Loader2 } from "lucide-react";
 import { UserResponse } from "@/shared/lib/api";
+import { BACKEND_URL } from "@/shared/lib/api/config";
 
 interface OtherUserHeaderProps {
   userData: UserResponse;
@@ -27,15 +28,13 @@ export function OtherUserHeader({
   return (
     <Card className="p-6">
       <div className="flex items-start gap-6">
-        <div className="w-24 h-24 rounded-full bg-muted flex items-center justify-center overflow-hidden flex-shrink-0">
-          {userData.profile_picture ? (
+        <div className="w-24 h-24 rounded-full bg-muted overflow-hidden flex-shrink-0">
+          {userData.profile_picture && (
             <img
-              src={`http://127.0.0.1:8000${userData.profile_picture}`}
+              src={`${BACKEND_URL}${userData.profile_picture}`}
               alt={userData.username}
               className="w-full h-full object-cover"
             />
-          ) : (
-            <User className="w-12 h-12 text-muted-foreground" />
           )}
         </div>
 

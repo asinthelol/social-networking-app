@@ -3,8 +3,9 @@
 import { useRef } from "react";
 import { Card } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
-import { User, LogOut } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { UserResponse } from "@/shared/lib/api";
+import { BACKEND_URL } from "@/shared/lib/api/config";
 
 interface ProfileHeaderProps {
   userData: UserResponse | null;
@@ -27,11 +28,9 @@ export function ProfileHeader({ userData, onProfilePictureChange, onLogout }: Pr
           className="relative cursor-pointer group"
           onClick={handleProfilePictureClick}
         >
-          <div className="w-24 h-24 rounded-full bg-muted flex items-center justify-center overflow-hidden">
-            {userData?.profile_picture ? (
-              <img src={`http://127.0.0.1:8000${userData.profile_picture}`} alt="Profile" className="w-full h-full object-cover" />
-            ) : (
-              <User className="w-12 h-12 text-muted-foreground" />
+          <div className="w-24 h-24 rounded-full bg-muted overflow-hidden">
+            {userData?.profile_picture && (
+              <img src={`${BACKEND_URL}${userData.profile_picture}`} alt="Profile" className="w-full h-full object-cover" />
             )}
           </div>
           <div className="absolute inset-0 rounded-full bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">

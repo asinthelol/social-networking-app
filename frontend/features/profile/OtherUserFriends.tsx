@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { Card } from "@/shared/components/ui/card";
 import { User } from "lucide-react";
 import { UserResponse } from "@/shared/lib/api";
+import { BACKEND_URL } from "@/shared/lib/api/config";
 
 interface OtherUserFriendsProps {
   friends: UserResponse[];
@@ -29,7 +30,7 @@ export function OtherUserFriends({ friends }: OtherUserFriendsProps) {
               <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center overflow-hidden flex-shrink-0">
                 {friend.profile_picture ? (
                   <img
-                    src={`http://127.0.0.1:8000${friend.profile_picture}`}
+                    src={`${BACKEND_URL}${friend.profile_picture}`}
                     alt={friend.username}
                     className="w-full h-full object-cover"
                   />

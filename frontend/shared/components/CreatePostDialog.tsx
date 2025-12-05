@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { Button } from "@/shared/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/shared/components/ui/dialog";
+import { Textarea } from "@/shared/components/ui/textarea";
 import { Plus, Image as ImageIcon, Smile, Loader2, X } from "lucide-react";
 import { createPost, uploadPostImage } from "@/shared/lib/api/";
 import { useAppSelector } from "@/shared/store/hooks";
@@ -114,11 +115,11 @@ export function CreatePostDialog({ onPostCreated }: CreatePostDialogProps) {
             )}
 
             <div className="flex flex-col gap-y-2">
-              <textarea
+              <Textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value.slice(0, maxChars))}
                 placeholder="What's on your mind?"
-                className="w-full min-h-[120px] p-3 bg-muted border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+                className="min-h-[120px] resize-none"
                 disabled={isLoading}
               />
               <div className={`text-sm text-right ${remainingChars < 20 ? "text-destructive" : "text-muted-foreground"}`}>

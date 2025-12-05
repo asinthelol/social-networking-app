@@ -3,7 +3,7 @@ Comment routes
 """
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from typing import List
 
 from app.database import get_db
@@ -32,7 +32,7 @@ def get_post_comments(
                 detail=f"Post with id {post_id} not found"
             )
         
-        comments = db.query(Comment).filter(Comment.post_id == post_id).order_by(Comment.created_at.asc()).offset(skip).limit(limit).all()
+        comments = db.query(Comment).options(joinedload(Comment.author)).filter(Comment.post_id == post_id).order_by(Comment.created_at.asc()).offset(skip).limit(limit).all()
         return comments
     except HTTPException:
         raise

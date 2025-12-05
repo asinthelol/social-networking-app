@@ -6,7 +6,8 @@ from os.path import dirname, join
 from typing import List, ClassVar
 from pydantic_settings import BaseSettings
 
-dotenv_path = join(dirname(__file__), '..', '.env')
+# Use root .env file
+dotenv_path = join(dirname(__file__), '..', '..', '.env')
 
 class Settings(BaseSettings):
     """Application settings loaded from environment variables"""

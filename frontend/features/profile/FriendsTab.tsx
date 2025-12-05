@@ -6,6 +6,7 @@ import { Card } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
 import { User, UserMinus, Loader2 } from "lucide-react";
 import { getUserFriends, removeFriend, UserResponse } from "@/shared/lib/api/";
+import { BACKEND_URL } from "@/shared/lib/api/config";
 
 interface FriendsTabProps {
   userId: number;
@@ -86,7 +87,7 @@ export function FriendsTab({ userId }: FriendsTabProps) {
                 <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center overflow-hidden flex-shrink-0">
                   {friend.profile_picture ? (
                     <img
-                      src={`http://127.0.0.1:8000${friend.profile_picture}`}
+                      src={`${BACKEND_URL}${friend.profile_picture}`}
                       alt={friend.username}
                       className="w-full h-full object-cover"
                     />

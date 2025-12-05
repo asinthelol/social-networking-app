@@ -1,10 +1,12 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { Card } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
-import { User, Trash2, Loader2 } from "lucide-react";
+import { Trash2, Loader2 } from "lucide-react";
 import { PostResponse } from "@/shared/lib/api/";
 import { useAppSelector } from "@/shared/store/hooks";
+import { BACKEND_URL } from "@/shared/lib/api/config";
 
 interface PostCardProps {
   post: PostResponse;
@@ -13,6 +15,7 @@ interface PostCardProps {
 }
 
 export function PostCard({ post, onDelete, isDeleting }: PostCardProps) {
+  const router = useRouter();
   const { userId } = useAppSelector((state) => state.auth);
   const isOwner = userId === post.user_id;
   const createdAt = new Date(post.created_at).toLocaleDateString("en-US", {
@@ -28,18 +31,27 @@ export function PostCard({ post, onDelete, isDeleting }: PostCardProps) {
     return null;
   }
 
+  const handleCardClick = (e: React.MouseEvent) => {
+    // Don't navigate if clicking the delete button
+    if ((e.target as HTMLElement).closest("button")) {
+      return;
+    }
+    router.push(`/details/${post.id}`);
+  };
+
   return (
-    <Card className="p-4">
+    <Card
+      className="p-4 cursor-pointer hover:bg-accent/50 transition-colors"
+      onClick={handleCardClick}
+    >
       <div className="flex items-start gap-3">
-        <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center overflow-hidden flex-shrink-0">
-          {post.author.profile_picture ? (
+        <div className="w-10 h-10 rounded-full bg-muted overflow-hidden flex-shrink-0">
+          {post.author.profile_picture && (
             <img
-              src={`http://127.0.0.1:8000${post.author.profile_picture}`}
+              src={`${BACKEND_URL}${post.author.profile_picture}`}
               alt={post.author.username}
               className="w-full h-full object-cover"
             />
-          ) : (
-            <User className="w-5 h-5 text-muted-foreground" />
           )}
         </div>
 
@@ -53,7 +65,10 @@ export function PostCard({ post, onDelete, isDeleting }: PostCardProps) {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => onDelete(post.id)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onDelete(post.id);
+                }}
                 disabled={isDeleting}
                 className="text-destructive hover:text-destructive hover:bg-destructive/10"
               >
@@ -71,7 +86,7 @@ export function PostCard({ post, onDelete, isDeleting }: PostCardProps) {
           {post.image_url && (
             <div className="rounded-lg overflow-hidden">
               <img
-                src={`http://127.0.0.1:8000${post.image_url}`}
+                src={`${BACKEND_URL}${post.image_url}`}
                 alt="Post image"
                 className="w-full max-h-96 object-cover"
               />
