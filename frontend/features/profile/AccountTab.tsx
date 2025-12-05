@@ -25,7 +25,7 @@ export function AccountTab({
   onDeleteAccount 
 }: AccountTabProps) {
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-y-4">
       <Card className="p-6">
         <h2 className="text-xl font-semibold mb-2">Account Settings</h2>
         <p className="text-sm text-muted-foreground mb-6">Manage your account information.</p>
@@ -78,7 +78,6 @@ export function AccountTab({
 
       <Card className="p-6 border-destructive">
         <h2 className="text-xl font-semibold text-destructive mb-2">Danger Zone</h2>
-        <p className="text-sm text-muted-foreground mb-6">Irreversible and destructive actions</p>
         
         <div className="flex items-center justify-between">
           <div>

@@ -5,13 +5,13 @@ import { useRouter } from "next/navigation";
 import { useAppSelector, useAppDispatch } from "@/shared/store/hooks";
 import { getUser, updateUser, deleteUser, uploadProfilePicture, UserResponse } from "@/shared/lib/api/";
 import { logout } from "@/shared/store/authSlice";
-import { ProfileHeader, ProfileTabs, PostsTab, AccountTab } from "@/features/profile";
+import { ProfileHeader, ProfileTabs, PostsTab, FriendsTab, AccountTab } from "@/features/profile";
 
 export default function ProfilePage() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const { isLoggedIn, userId } = useAppSelector((state) => state.auth);
-  const [activeTab, setActiveTab] = useState<"posts" | "account">("posts");
+  const [activeTab, setActiveTab] = useState<"posts" | "friends" | "account">("posts");
   const [userData, setUserData] = useState<UserResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -130,6 +130,8 @@ export default function ProfilePage() {
         />
 
         {activeTab === "posts" && <PostsTab />}
+
+        {activeTab === "friends" && userId && <FriendsTab userId={userId} />}
 
         {activeTab === "account" && (
           <AccountTab

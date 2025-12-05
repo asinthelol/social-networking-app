@@ -1,8 +1,8 @@
 import { Card } from "@/shared/components/ui/card";
 
 interface ProfileTabsProps {
-  activeTab: "posts" | "account";
-  onTabChange: (tab: "posts" | "account") => void;
+  activeTab: "posts" | "friends" | "account";
+  onTabChange: (tab: "posts" | "friends" | "account") => void;
 }
 
 export function ProfileTabs({ activeTab, onTabChange }: ProfileTabsProps) {
@@ -17,6 +17,16 @@ export function ProfileTabs({ activeTab, onTabChange }: ProfileTabsProps) {
         }`}
       >
         Posts
+      </button>
+      <button
+        onClick={() => onTabChange("friends")}
+        className={`flex-1 px-4 py-2 font-medium transition-all rounded ${
+          activeTab === "friends"
+            ? "bg-card text-foreground shadow-sm"
+            : "text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        Friends
       </button>
       <button
         onClick={() => onTabChange("account")}
