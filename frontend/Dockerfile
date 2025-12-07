@@ -35,7 +35,7 @@ RUN mkdir -p ./public
 
 # Run as non-root user
 RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs && \
+    adduser --system --uid 1001 --home /app nextjs && \
     chown -R nextjs:nodejs /app
 
 USER nextjs
