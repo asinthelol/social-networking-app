@@ -78,6 +78,8 @@ export default function Home() {
       <div className="flex flex-col gap-y-4 w-full max-w-[40rem] mx-auto px-4">
         {/* Tab Switcher */}
         <div className="flex gap-2 border-b">
+          By kevin tolbert
+          https://github.com/asinthelol/social-networking-app
           <Button
             variant="ghost"
             onClick={() => setActiveTab("latest")}
