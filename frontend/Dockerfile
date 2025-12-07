@@ -28,8 +28,10 @@ RUN npm ci --omit=dev
 
 # Copy built code from builder
 COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.ts ./
+
+# Create empty public directory (Next.js requirement)
+RUN mkdir -p ./public
 
 # Run as non-root user
 RUN addgroup --system --gid 1001 nodejs && \
