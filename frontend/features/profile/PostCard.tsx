@@ -55,7 +55,7 @@ export function PostCard({ post, onDelete, isDeleting }: PostCardProps) {
           )}
         </div>
 
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 flex flex-col gap-y-2">
           <div className="flex items-center justify-between mb-1">
             <div>
               <h3 className="font-semibold">{post.author.username}</h3>

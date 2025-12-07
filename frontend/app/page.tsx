@@ -125,7 +125,7 @@ export default function Home() {
                 </p>
               </Card>
             ) : (
-              <div className="space-y-4">
+              <div className="flex flex-col gap-y-4">
                 {posts.map((post) => (
                   <PostCard key={post.id} post={post} />
                 ))}
