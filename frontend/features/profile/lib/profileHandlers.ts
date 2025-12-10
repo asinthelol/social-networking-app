@@ -31,6 +31,7 @@ export async function handleUserUpdate(
 
 export async function handleAccountDeletion(
   userId: number,
+  currentUserId: number,
   onSuccess: () => void,
   onError: (error: string) => void
 ) {
@@ -39,7 +40,7 @@ export async function handleAccountDeletion(
   }
 
   try {
-    await deleteUser(userId);
+    await deleteUser(userId, currentUserId);
     onSuccess();
     return true;
   } catch (err) {

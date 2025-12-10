@@ -165,10 +165,11 @@ def update_user(
 @router.delete("/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_user(
     user_id: int,
+    current_user_id: int,
     db: Session = Depends(get_db)
 ):
     """
-    Delete a user
+    Delete a user (own account or admin can delete any user)
     """
     
     try:
@@ -177,6 +178,20 @@ def delete_user(
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail=f"User with id {user_id} not found"
+            )
+        
+        # Check if user is deleting their own account or is an admin
+        current_user = db.query(User).filter(User.id == current_user_id).first()
+        if not current_user:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Current user not found"
+            )
+        
+        if user_id != current_user_id and not current_user.is_admin:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Not authorized to delete this user"
             )
         
         db.delete(db_user)

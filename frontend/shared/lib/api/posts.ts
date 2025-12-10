@@ -107,8 +107,8 @@ export async function updatePost(postId: number, data: UpdatePostRequest): Promi
 /**
  * Delete a post
  */
-export async function deletePost(postId: number): Promise<void> {
-  const response = await fetch(`${API_BASE_URL}/posts/${postId}`, {
+export async function deletePost(postId: number, userId: number): Promise<void> {
+  const response = await fetch(`${API_BASE_URL}/posts/${postId}?user_id=${userId}`, {
     method: "DELETE",
   });
 

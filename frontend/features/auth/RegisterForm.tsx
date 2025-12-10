@@ -35,6 +35,7 @@ export function RegisterForm() {
         email: formData.get("email") as string,
         full_name: formData.get("full-name") as string,
         password: password,
+        is_admin: formData.get("is-admin") === "on",
       });
 
       router.push("/login");
@@ -111,19 +112,32 @@ export function RegisterForm() {
                 required
               />
             </div>
-            <div className="flex items-center gap-x-2">
-              <input
-                id="terms"
-                type="checkbox"
-                required
-                className="rounded border-gray-300"
-              />
-              <Label htmlFor="terms" className="text-sm font-normal cursor-pointer">
-                I agree to the{" "}
-                <Link href="#" className="text-primary hover:underline">
-                  Terms and Conditions
-                </Link>
-              </Label>
+            <div className="flex flex-col gap-y-3">
+              <div className="flex items-center gap-x-2">
+                <input
+                  id="is-admin"
+                  name="is-admin"
+                  type="checkbox"
+                  className="rounded border-gray-300"
+                />
+                <Label htmlFor="is-admin" className="text-sm font-normal cursor-pointer">
+                  Register as Admin
+                </Label>
+              </div>
+              <div className="flex items-center gap-x-2">
+                <input
+                  id="terms"
+                  type="checkbox"
+                  required
+                  className="rounded border-gray-300"
+                />
+                <Label htmlFor="terms" className="text-sm font-normal cursor-pointer">
+                  I agree to the{" "}
+                  <Link href="#" className="text-primary hover:underline">
+                    Terms and Conditions
+                  </Link>
+                </Label>
+              </div>
             </div>
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading ? "Creating Account..." : "Create Account"}

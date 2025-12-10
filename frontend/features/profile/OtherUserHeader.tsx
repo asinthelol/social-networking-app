@@ -2,7 +2,7 @@
 
 import { Card } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
-import { UserPlus, UserMinus, Loader2 } from "lucide-react";
+import { UserPlus, UserMinus, Loader2, Trash2 } from "lucide-react";
 import { UserResponse } from "@/shared/lib/api";
 import { BACKEND_URL } from "@/shared/lib/api/config";
 
@@ -14,6 +14,9 @@ interface OtherUserHeaderProps {
   error: string;
   onAddFriend: () => void;
   onRemoveFriend: () => void;
+  currentUser?: UserResponse | null;
+  onDeleteUser?: () => void;
+  isDeletingUser?: boolean;
 }
 
 export function OtherUserHeader({
@@ -24,6 +27,9 @@ export function OtherUserHeader({
   error,
   onAddFriend,
   onRemoveFriend,
+  currentUser,
+  onDeleteUser,
+  isDeletingUser,
 }: OtherUserHeaderProps) {
   return (
     <Card className="p-6">
@@ -39,7 +45,14 @@ export function OtherUserHeader({
         </div>
 
         <div className="flex-1 min-w-0">
-          <h1 className="text-2xl font-bold mb-2">{userData.username}</h1>
+          <div className="flex items-center gap-2 mb-2">
+            <h1 className="text-2xl font-bold">{userData.username}</h1>
+            {userData.is_admin && (
+              <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                ADMIN
+              </span>
+            )}
+          </div>
           <p className="text-sm text-muted-foreground mb-1">{userData.email}</p>
           {userData.bio && (
             <p className="text-sm text-muted-foreground mt-2">{userData.bio}</p>
@@ -47,7 +60,21 @@ export function OtherUserHeader({
         </div>
 
         {isLoggedIn && (
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex gap-2">
+            {currentUser?.is_admin && onDeleteUser && (
+              <Button
+                variant="destructive"
+                onClick={onDeleteUser}
+                disabled={isDeletingUser}
+              >
+                {isDeletingUser ? (
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                ) : (
+                  <Trash2 className="w-4 h-4 mr-2" />
+                )}
+                Delete Account
+              </Button>
+            )}
             {isFriend ? (
               <Button
                 variant="outline"

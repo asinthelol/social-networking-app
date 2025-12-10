@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { Card } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
 import { Trash2, Loader2 } from "lucide-react";
-import { PostResponse } from "@/shared/lib/api/";
+import { PostResponse, UserResponse } from "@/shared/lib/api/";
 import { useAppSelector } from "@/shared/store/hooks";
 import { BACKEND_URL } from "@/shared/lib/api/config";
 
@@ -12,12 +12,14 @@ interface PostCardProps {
   post: PostResponse;
   onDelete?: (postId: number) => void;
   isDeleting?: boolean;
+  currentUser?: UserResponse | null;
 }
 
-export function PostCard({ post, onDelete, isDeleting }: PostCardProps) {
+export function PostCard({ post, onDelete, isDeleting, currentUser }: PostCardProps) {
   const router = useRouter();
   const { userId } = useAppSelector((state) => state.auth);
   const isOwner = userId === post.user_id;
+  const canDelete = isOwner || currentUser?.is_admin;
   const createdAt = new Date(post.created_at).toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
@@ -61,7 +63,7 @@ export function PostCard({ post, onDelete, isDeleting }: PostCardProps) {
               <h3 className="font-semibold">{post.author.username}</h3>
               <p className="text-xs text-muted-foreground">{createdAt}</p>
             </div>
-            {isOwner && onDelete && (
+            {canDelete && onDelete && (
               <Button
                 variant="ghost"
                 size="sm"

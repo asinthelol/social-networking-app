@@ -15,6 +15,7 @@ class UserBase(BaseModel):
     full_name: str = Field(..., description="User's full name")
     bio: Optional[str] = Field(None, description="User biography")
     profile_picture: Optional[str] = Field(None, description="Profile picture URL")
+    is_admin: bool = Field(False, description="Whether user has admin privileges")
 
 
 class UserCreate(UserBase):

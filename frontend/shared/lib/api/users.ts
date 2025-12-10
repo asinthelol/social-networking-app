@@ -62,8 +62,8 @@ export async function updateUser(userId: number, data: UpdateUserRequest): Promi
   return response.json();
 }
 
-export async function deleteUser(userId: number): Promise<void> {
-  const response = await fetch(`${API_BASE_URL}/users/${userId}`, {
+export async function deleteUser(userId: number, currentUserId: number): Promise<void> {
+  const response = await fetch(`${API_BASE_URL}/users/${userId}?current_user_id=${currentUserId}`, {
     method: "DELETE",
   });
 

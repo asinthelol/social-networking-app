@@ -16,10 +16,12 @@ export default function UserProfilePage() {
   const { userId: currentUserId, isLoggedIn } = useAppSelector((state) => state.auth);
   
   const [userData, setUserData] = useState<UserResponse | null>(null);
+  const [currentUser, setCurrentUser] = useState<UserResponse | null>(null);
   const [friends, setFriends] = useState<UserResponse[]>([]);
   const [currentUserFriends, setCurrentUserFriends] = useState<UserResponse[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isFriendActionLoading, setIsFriendActionLoading] = useState(false);
+  const [isDeletingUser, setIsDeletingUser] = useState(false);
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState<"posts" | "friends" | "account">("posts");
 
@@ -34,14 +36,16 @@ export default function UserProfilePage() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const [userRes, friendsRes, currentFriendsRes] = await Promise.all([
+        const [userRes, friendsRes, currentFriendsRes, currentUserRes] = await Promise.all([
           getUser(userId),
           getUserFriends(userId),
           currentUserId ? getUserFriends(currentUserId) : Promise.resolve([]),
+          currentUserId ? getUser(currentUserId) : Promise.resolve(null),
         ]);
         setUserData(userRes);
         setFriends(friendsRes);
         setCurrentUserFriends(currentFriendsRes);
+        setCurrentUser(currentUserRes);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to load data");
       } finally {
@@ -65,6 +69,21 @@ export default function UserProfilePage() {
       setError(err instanceof Error ? err.message : `Failed to ${action} friend`);
     } finally {
       setIsFriendActionLoading(false);
+    }
+  };
+
+  const handleDeleteUser = async () => {
+    if (!currentUserId || !userId) return;
+    if (!confirm(`Are you sure you want to delete ${userData?.username}'s account? This action cannot be undone.`)) return;
+
+    try {
+      setIsDeletingUser(true);
+      const { deleteUser } = await import("@/shared/lib/api/");
+      await deleteUser(userId, currentUserId);
+      router.push("/");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to delete user");
+      setIsDeletingUser(false);
     }
   };
 
@@ -105,6 +124,9 @@ export default function UserProfilePage() {
           error={error}
           onAddFriend={() => handleFriendAction("add")}
           onRemoveFriend={() => handleFriendAction("remove")}
+          currentUser={currentUser}
+          onDeleteUser={handleDeleteUser}
+          isDeletingUser={isDeletingUser}
         />
 
         <ProfileTabs activeTab={activeTab} onTabChange={setActiveTab} />

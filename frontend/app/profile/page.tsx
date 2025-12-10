@@ -93,6 +93,7 @@ export default function ProfilePage() {
     setIsLoading(true);
     const success = await handleAccountDeletion(
       userId,
+      userId,
       () => {
         dispatch(logout());
         router.push("/login");

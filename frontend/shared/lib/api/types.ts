@@ -3,6 +3,7 @@ export interface CreateUserRequest {
   email: string;
   full_name: string;
   password: string;
+  is_admin?: boolean;
 }
 
 export interface UpdateUserRequest {
@@ -21,4 +22,5 @@ export interface UserResponse {
   bio?: string;
   profile_picture?: string;
   created_at: string;
+  is_admin: boolean;
 }

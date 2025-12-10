@@ -158,10 +158,11 @@ def update_post(
 @router.delete("/{post_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_post(
     post_id: int,
+    user_id: int,
     db: Session = Depends(get_db)
 ):
     """
-    Delete a post
+    Delete a post (own post or admin can delete any post)
     """
     
     try:
@@ -170,6 +171,20 @@ def delete_post(
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail=f"Post with id {post_id} not found"
+            )
+        
+        # Check if user is the post owner or an admin
+        user = db.query(User).filter(User.id == user_id).first()
+        if not user:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="User not found"
+            )
+        
+        if db_post.user_id != user_id and not user.is_admin:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Not authorized to delete this post"
             )
         
         db.delete(db_post)

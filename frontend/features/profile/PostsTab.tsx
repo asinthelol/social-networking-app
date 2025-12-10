@@ -5,6 +5,7 @@ import { Card } from "@/shared/components/ui/card";
 import { Loader2 } from "lucide-react";
 import { getUserPosts, deletePost, PostResponse } from "@/shared/lib/api/";
 import { PostCard } from "./PostCard";
+import { useAppSelector } from "@/shared/store/hooks";
 
 interface PostsTabProps {
   userId: number;
@@ -12,14 +13,30 @@ interface PostsTabProps {
 }
 
 export function PostsTab({ userId, username }: PostsTabProps) {
+  const currentUserId = useAppSelector((state) => state.auth.userId);
   const [posts, setPosts] = useState<PostResponse[]>([]);
+  const [currentUser, setCurrentUser] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const [deletingPostId, setDeletingPostId] = useState<number | null>(null);
 
   useEffect(() => {
     fetchPosts();
-  }, [userId]);
+    if (currentUserId) {
+      fetchCurrentUser();
+    }
+  }, [userId, currentUserId]);
+
+  const fetchCurrentUser = async () => {
+    if (!currentUserId) return;
+    try {
+      const { getUser } = await import("@/shared/lib/api/");
+      const user = await getUser(currentUserId);
+      setCurrentUser(user);
+    } catch (err) {
+      console.error("Failed to fetch current user", err);
+    }
+  };
 
   const fetchPosts = async () => {
     try {
@@ -35,10 +52,11 @@ export function PostsTab({ userId, username }: PostsTabProps) {
 
   const handleDeletePost = async (postId: number) => {
     if (!confirm("Are you sure you want to delete this post?")) return;
+    if (!currentUserId) return;
 
     try {
       setDeletingPostId(postId);
-      await deletePost(postId);
+      await deletePost(postId, currentUserId);
       setPosts(posts.filter((post) => post.id !== postId));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to delete post");
@@ -78,6 +96,7 @@ export function PostsTab({ userId, username }: PostsTabProps) {
             post={post}
             onDelete={handleDeletePost}
             isDeleting={deletingPostId === post.id}
+            currentUser={currentUser}
           />
         ))
       )}
