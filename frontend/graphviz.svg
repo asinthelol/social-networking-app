@@ -1,0 +1,304 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1951pt" height="806pt" viewBox="0.00 0.00 1951.00 806.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 802)">
+<title>classes_social-networking-app</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-802 1946.8,-802 1946.8,4 -4,4"/>
+<!-- app.models.Comment -->
+<g id="node1" class="node">
+<title>app.models.Comment</title>
+<polygon fill="none" stroke="black" points="310.71,-34.1 310.71,-209.3 498.51,-209.3 498.51,-34.1 310.71,-34.1"/>
+<text xml:space="preserve" text-anchor="start" x="377" y="-192.7" font-family="Times,serif" font-size="14.00">Comment</text>
+<polyline fill="none" stroke="black" points="310.71,-184.5 498.51,-184.5"/>
+<text xml:space="preserve" text-anchor="start" x="318.71" y="-167.9" font-family="Times,serif" font-size="14.00">author</text>
+<text xml:space="preserve" text-anchor="start" x="318.71" y="-151.1" font-family="Times,serif" font-size="14.00">content : Mapped[str]</text>
+<text xml:space="preserve" text-anchor="start" x="318.71" y="-134.3" font-family="Times,serif" font-size="14.00">created_at : Mapped[datetime]</text>
+<text xml:space="preserve" text-anchor="start" x="318.71" y="-117.5" font-family="Times,serif" font-size="14.00">id : Mapped[int]</text>
+<text xml:space="preserve" text-anchor="start" x="318.71" y="-100.7" font-family="Times,serif" font-size="14.00">post</text>
+<text xml:space="preserve" text-anchor="start" x="318.71" y="-83.9" font-family="Times,serif" font-size="14.00">post_id : Mapped[int]</text>
+<text xml:space="preserve" text-anchor="start" x="318.71" y="-67.1" font-family="Times,serif" font-size="14.00">user_id : Mapped[int]</text>
+<polyline fill="none" stroke="black" points="310.71,-58.9 498.51,-58.9"/>
+<text xml:space="preserve" text-anchor="start" x="402.86" y="-42.3" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.CommentBase -->
+<g id="node2" class="node">
+<title>app.schemas.CommentBase</title>
+<polygon fill="none" stroke="black" points="48.4,-509.9 48.4,-584.3 188.81,-584.3 188.81,-509.9 48.4,-509.9"/>
+<text xml:space="preserve" text-anchor="start" x="77.39" y="-567.7" font-family="Times,serif" font-size="14.00">CommentBase</text>
+<polyline fill="none" stroke="black" points="48.4,-559.5 188.81,-559.5"/>
+<text xml:space="preserve" text-anchor="start" x="56.4" y="-542.9" font-family="Times,serif" font-size="14.00">content : Optional[str]</text>
+<polyline fill="none" stroke="black" points="48.4,-534.7 188.81,-534.7"/>
+<text xml:space="preserve" text-anchor="start" x="116.86" y="-518.1" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.CommentCreate -->
+<g id="node3" class="node">
+<title>app.schemas.CommentCreate</title>
+<polygon fill="none" stroke="black" points="0,-314.5 0,-405.7 141.21,-405.7 141.21,-314.5 0,-314.5"/>
+<text xml:space="preserve" text-anchor="start" x="24.73" y="-389.1" font-family="Times,serif" font-size="14.00">CommentCreate</text>
+<polyline fill="none" stroke="black" points="0,-380.9 141.21,-380.9"/>
+<text xml:space="preserve" text-anchor="start" x="8" y="-364.3" font-family="Times,serif" font-size="14.00">post_id : Optional[int]</text>
+<text xml:space="preserve" text-anchor="start" x="8" y="-347.5" font-family="Times,serif" font-size="14.00">user_id : Optional[int]</text>
+<polyline fill="none" stroke="black" points="0,-339.3 141.21,-339.3"/>
+<text xml:space="preserve" text-anchor="start" x="68.86" y="-322.7" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.CommentCreate&#45;&gt;app.schemas.CommentBase -->
+<g id="edge1" class="edge">
+<title>app.schemas.CommentCreate-&gt;app.schemas.CommentBase</title>
+<path fill="none" stroke="black" d="M82.23,-405.88C89.5,-433.92 98.87,-470.01 106.27,-498.56"/>
+<polygon fill="none" stroke="black" points="102.83,-499.23 108.73,-508.03 109.6,-497.47 102.83,-499.23"/>
+</g>
+<!-- app.schemas.CommentResponse -->
+<g id="node4" class="node">
+<title>app.schemas.CommentResponse</title>
+<polygon fill="none" stroke="black" points="158.79,-280.9 158.79,-439.3 326.43,-439.3 326.43,-280.9 158.79,-280.9"/>
+<text xml:space="preserve" text-anchor="start" x="188.17" y="-422.7" font-family="Times,serif" font-size="14.00">CommentResponse</text>
+<polyline fill="none" stroke="black" points="158.79,-414.5 326.43,-414.5"/>
+<text xml:space="preserve" text-anchor="start" x="166.79" y="-397.9" font-family="Times,serif" font-size="14.00">author</text>
+<text xml:space="preserve" text-anchor="start" x="166.79" y="-381.1" font-family="Times,serif" font-size="14.00">created_at : datetime</text>
+<text xml:space="preserve" text-anchor="start" x="166.79" y="-364.3" font-family="Times,serif" font-size="14.00">id : int</text>
+<text xml:space="preserve" text-anchor="start" x="166.79" y="-347.5" font-family="Times,serif" font-size="14.00">model_config : ConfigDict</text>
+<text xml:space="preserve" text-anchor="start" x="166.79" y="-330.7" font-family="Times,serif" font-size="14.00">post_id : int</text>
+<text xml:space="preserve" text-anchor="start" x="166.79" y="-313.9" font-family="Times,serif" font-size="14.00">user_id : int</text>
+<polyline fill="none" stroke="black" points="158.79,-305.7 326.43,-305.7"/>
+<text xml:space="preserve" text-anchor="start" x="240.86" y="-289.1" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.CommentResponse&#45;&gt;app.schemas.CommentBase -->
+<g id="edge2" class="edge">
+<title>app.schemas.CommentResponse-&gt;app.schemas.CommentBase</title>
+<path fill="none" stroke="black" d="M190.02,-439.56C176.14,-460.26 161.62,-481.92 149.33,-500.27"/>
+<polygon fill="none" stroke="black" points="146.43,-498.3 143.77,-508.55 152.25,-502.2 146.43,-498.3"/>
+</g>
+<!-- app.schemas.UserResponse -->
+<g id="node16" class="node">
+<title>app.schemas.UserResponse</title>
+<polygon fill="none" stroke="black" points="351.79,-493.1 351.79,-601.1 519.43,-601.1 519.43,-493.1 351.79,-493.1"/>
+<text xml:space="preserve" text-anchor="start" x="395.56" y="-584.5" font-family="Times,serif" font-size="14.00">UserResponse</text>
+<polyline fill="none" stroke="black" points="351.79,-576.3 519.43,-576.3"/>
+<text xml:space="preserve" text-anchor="start" x="359.79" y="-559.7" font-family="Times,serif" font-size="14.00">created_at : datetime</text>
+<text xml:space="preserve" text-anchor="start" x="359.79" y="-542.9" font-family="Times,serif" font-size="14.00">id : int</text>
+<text xml:space="preserve" text-anchor="start" x="359.79" y="-526.1" font-family="Times,serif" font-size="14.00">model_config : ConfigDict</text>
+<polyline fill="none" stroke="black" points="351.79,-517.9 519.43,-517.9"/>
+<text xml:space="preserve" text-anchor="start" x="433.86" y="-501.3" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.CommentResponse&#45;&gt;app.schemas.UserResponse -->
+<g id="edge9" class="edge">
+<title>app.schemas.CommentResponse-&gt;app.schemas.UserResponse</title>
+<path fill="none" stroke="black" d="M324.46,-439.56C340.38,-454.82 356.85,-470.6 372.07,-485.2"/>
+<polygon fill="black" stroke="black" points="379.03,-491.87 368.7,-488.2 376.3,-489.25 371.81,-484.95 371.81,-484.95 371.81,-484.95 376.3,-489.25 374.92,-481.7 379.03,-491.87"/>
+<text xml:space="preserve" text-anchor="middle" x="374.28" y="-462" font-family="Times,serif" font-size="14.00" fill="green">author</text>
+</g>
+<!-- app.schemas.FriendRequest -->
+<g id="node5" class="node">
+<title>app.schemas.FriendRequest</title>
+<polygon fill="none" stroke="black" points="758.96,-76.1 758.96,-167.3 910.26,-167.3 910.26,-76.1 758.96,-76.1"/>
+<text xml:space="preserve" text-anchor="start" x="793.78" y="-150.7" font-family="Times,serif" font-size="14.00">FriendRequest</text>
+<polyline fill="none" stroke="black" points="758.96,-142.5 910.26,-142.5"/>
+<text xml:space="preserve" text-anchor="start" x="766.96" y="-125.9" font-family="Times,serif" font-size="14.00">friend_id : Optional[int]</text>
+<text xml:space="preserve" text-anchor="start" x="766.96" y="-109.1" font-family="Times,serif" font-size="14.00">user_id : Optional[int]</text>
+<polyline fill="none" stroke="black" points="758.96,-100.9 910.26,-100.9"/>
+<text xml:space="preserve" text-anchor="start" x="832.86" y="-84.3" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.models.Post -->
+<g id="node6" class="node">
+<title>app.models.Post</title>
+<polygon fill="none" stroke="black" points="928.12,-25.7 928.12,-217.7 1121.09,-217.7 1121.09,-25.7 928.12,-25.7"/>
+<text xml:space="preserve" text-anchor="start" x="1012.54" y="-201.1" font-family="Times,serif" font-size="14.00">Post</text>
+<polyline fill="none" stroke="black" points="928.12,-192.9 1121.09,-192.9"/>
+<text xml:space="preserve" text-anchor="start" x="936.12" y="-176.3" font-family="Times,serif" font-size="14.00">author</text>
+<text xml:space="preserve" text-anchor="start" x="936.12" y="-159.5" font-family="Times,serif" font-size="14.00">comments</text>
+<text xml:space="preserve" text-anchor="start" x="936.12" y="-142.7" font-family="Times,serif" font-size="14.00">content : Mapped[str]</text>
+<text xml:space="preserve" text-anchor="start" x="936.12" y="-125.9" font-family="Times,serif" font-size="14.00">created_at : Mapped[datetime]</text>
+<text xml:space="preserve" text-anchor="start" x="936.12" y="-109.1" font-family="Times,serif" font-size="14.00">id : Mapped[int]</text>
+<text xml:space="preserve" text-anchor="start" x="936.12" y="-92.3" font-family="Times,serif" font-size="14.00">image_url : Mapped[str | None]</text>
+<text xml:space="preserve" text-anchor="start" x="936.12" y="-75.5" font-family="Times,serif" font-size="14.00">updated_at : Mapped[datetime]</text>
+<text xml:space="preserve" text-anchor="start" x="936.12" y="-58.7" font-family="Times,serif" font-size="14.00">user_id : Mapped[int]</text>
+<polyline fill="none" stroke="black" points="928.12,-50.5 1121.09,-50.5"/>
+<text xml:space="preserve" text-anchor="start" x="1022.86" y="-33.9" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.PostBase -->
+<g id="node7" class="node">
+<title>app.schemas.PostBase</title>
+<polygon fill="none" stroke="black" points="662.62,-501.5 662.62,-592.7 818.59,-592.7 818.59,-501.5 662.62,-501.5"/>
+<text xml:space="preserve" text-anchor="start" x="714.94" y="-576.1" font-family="Times,serif" font-size="14.00">PostBase</text>
+<polyline fill="none" stroke="black" points="662.62,-567.9 818.59,-567.9"/>
+<text xml:space="preserve" text-anchor="start" x="670.62" y="-551.3" font-family="Times,serif" font-size="14.00">content : Optional[str]</text>
+<text xml:space="preserve" text-anchor="start" x="670.62" y="-534.5" font-family="Times,serif" font-size="14.00">image_url : Optional[str]</text>
+<polyline fill="none" stroke="black" points="662.62,-526.3 818.59,-526.3"/>
+<text xml:space="preserve" text-anchor="start" x="738.86" y="-509.7" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.PostCreate -->
+<g id="node8" class="node">
+<title>app.schemas.PostCreate</title>
+<polygon fill="none" stroke="black" points="730.01,-322.9 730.01,-397.3 871.21,-397.3 871.21,-322.9 730.01,-322.9"/>
+<text xml:space="preserve" text-anchor="start" x="770.28" y="-380.7" font-family="Times,serif" font-size="14.00">PostCreate</text>
+<polyline fill="none" stroke="black" points="730.01,-372.5 871.21,-372.5"/>
+<text xml:space="preserve" text-anchor="start" x="738.01" y="-355.9" font-family="Times,serif" font-size="14.00">user_id : Optional[int]</text>
+<polyline fill="none" stroke="black" points="730.01,-347.7 871.21,-347.7"/>
+<text xml:space="preserve" text-anchor="start" x="798.86" y="-331.1" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.PostCreate&#45;&gt;app.schemas.PostBase -->
+<g id="edge3" class="edge">
+<title>app.schemas.PostCreate-&gt;app.schemas.PostBase</title>
+<path fill="none" stroke="black" d="M788.75,-397.65C780.18,-424.1 768.43,-460.32 758.68,-490.36"/>
+<polygon fill="none" stroke="black" points="755.42,-489.09 755.66,-499.68 762.08,-491.25 755.42,-489.09"/>
+</g>
+<!-- app.schemas.PostResponse -->
+<g id="node9" class="node">
+<title>app.schemas.PostResponse</title>
+<polygon fill="none" stroke="black" points="544.79,-280.9 544.79,-439.3 712.43,-439.3 712.43,-280.9 544.79,-280.9"/>
+<text xml:space="preserve" text-anchor="start" x="589.71" y="-422.7" font-family="Times,serif" font-size="14.00">PostResponse</text>
+<polyline fill="none" stroke="black" points="544.79,-414.5 712.43,-414.5"/>
+<text xml:space="preserve" text-anchor="start" x="552.79" y="-397.9" font-family="Times,serif" font-size="14.00">author</text>
+<text xml:space="preserve" text-anchor="start" x="552.79" y="-381.1" font-family="Times,serif" font-size="14.00">created_at : datetime</text>
+<text xml:space="preserve" text-anchor="start" x="552.79" y="-364.3" font-family="Times,serif" font-size="14.00">id : int</text>
+<text xml:space="preserve" text-anchor="start" x="552.79" y="-347.5" font-family="Times,serif" font-size="14.00">model_config : ConfigDict</text>
+<text xml:space="preserve" text-anchor="start" x="552.79" y="-330.7" font-family="Times,serif" font-size="14.00">updated_at : datetime</text>
+<text xml:space="preserve" text-anchor="start" x="552.79" y="-313.9" font-family="Times,serif" font-size="14.00">user_id : int</text>
+<polyline fill="none" stroke="black" points="544.79,-305.7 712.43,-305.7"/>
+<text xml:space="preserve" text-anchor="start" x="626.86" y="-289.1" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.PostResponse&#45;&gt;app.schemas.PostBase -->
+<g id="edge4" class="edge">
+<title>app.schemas.PostResponse-&gt;app.schemas.PostBase</title>
+<path fill="none" stroke="black" d="M676.11,-439.56C686.77,-457.17 697.86,-475.49 707.77,-491.86"/>
+<polygon fill="none" stroke="black" points="704.5,-493.22 712.67,-499.96 710.49,-489.59 704.5,-493.22"/>
+</g>
+<!-- app.schemas.PostResponse&#45;&gt;app.schemas.UserResponse -->
+<g id="edge10" class="edge">
+<title>app.schemas.PostResponse-&gt;app.schemas.UserResponse</title>
+<path fill="none" stroke="black" d="M546.76,-439.56C530.83,-454.82 514.37,-470.6 499.14,-485.2"/>
+<polygon fill="black" stroke="black" points="492.18,-491.87 496.29,-481.7 494.91,-489.25 499.4,-484.95 499.4,-484.95 499.4,-484.95 494.91,-489.25 502.52,-488.2 492.18,-491.87"/>
+<text xml:space="preserve" text-anchor="middle" x="544.2" y="-462" font-family="Times,serif" font-size="14.00" fill="green">author</text>
+</g>
+<!-- app.schemas.PostUpdate -->
+<g id="node10" class="node">
+<title>app.schemas.PostUpdate</title>
+<polygon fill="none" stroke="black" points="1138.62,-76.1 1138.62,-167.3 1294.59,-167.3 1294.59,-76.1 1138.62,-76.1"/>
+<text xml:space="preserve" text-anchor="start" x="1184.33" y="-150.7" font-family="Times,serif" font-size="14.00">PostUpdate</text>
+<polyline fill="none" stroke="black" points="1138.62,-142.5 1294.59,-142.5"/>
+<text xml:space="preserve" text-anchor="start" x="1146.62" y="-125.9" font-family="Times,serif" font-size="14.00">content : Optional[str]</text>
+<text xml:space="preserve" text-anchor="start" x="1146.62" y="-109.1" font-family="Times,serif" font-size="14.00">image_url : Optional[str]</text>
+<polyline fill="none" stroke="black" points="1138.62,-100.9 1294.59,-100.9"/>
+<text xml:space="preserve" text-anchor="start" x="1214.86" y="-84.3" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.PostWithComments -->
+<g id="node11" class="node">
+<title>app.schemas.PostWithComments</title>
+<polygon fill="none" stroke="black" points="516.4,-76.1 516.4,-167.3 740.82,-167.3 740.82,-76.1 516.4,-76.1"/>
+<text xml:space="preserve" text-anchor="start" x="572.21" y="-150.7" font-family="Times,serif" font-size="14.00">PostWithComments</text>
+<polyline fill="none" stroke="black" points="516.4,-142.5 740.82,-142.5"/>
+<text xml:space="preserve" text-anchor="start" x="524.4" y="-125.9" font-family="Times,serif" font-size="14.00">comments : List[CommentResponse]</text>
+<text xml:space="preserve" text-anchor="start" x="524.4" y="-109.1" font-family="Times,serif" font-size="14.00">model_config : ConfigDict</text>
+<polyline fill="none" stroke="black" points="516.4,-100.9 740.82,-100.9"/>
+<text xml:space="preserve" text-anchor="start" x="626.86" y="-84.3" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.PostWithComments&#45;&gt;app.schemas.PostResponse -->
+<g id="edge5" class="edge">
+<title>app.schemas.PostWithComments-&gt;app.schemas.PostResponse</title>
+<path fill="none" stroke="black" d="M628.61,-167.72C628.61,-196.49 628.61,-234.8 628.61,-269.58"/>
+<polygon fill="none" stroke="black" points="625.11,-269.21 628.61,-279.21 632.11,-269.22 625.11,-269.21"/>
+</g>
+<!-- app.config.Settings -->
+<g id="node12" class="node">
+<title>app.config.Settings</title>
+<polygon fill="none" stroke="black" points="1312.35,-25.7 1312.35,-217.7 1504.86,-217.7 1504.86,-25.7 1312.35,-25.7"/>
+<text xml:space="preserve" text-anchor="start" x="1386.05" y="-201.1" font-family="Times,serif" font-size="14.00">Settings</text>
+<polyline fill="none" stroke="black" points="1312.35,-192.9 1504.86,-192.9"/>
+<text xml:space="preserve" text-anchor="start" x="1320.35" y="-176.3" font-family="Times,serif" font-size="14.00">API_PREFIX : str</text>
+<text xml:space="preserve" text-anchor="start" x="1320.35" y="-159.5" font-family="Times,serif" font-size="14.00">APP_NAME : str</text>
+<text xml:space="preserve" text-anchor="start" x="1320.35" y="-142.7" font-family="Times,serif" font-size="14.00">CORS_ORIGINS : List[str]</text>
+<text xml:space="preserve" text-anchor="start" x="1320.35" y="-125.9" font-family="Times,serif" font-size="14.00">DATABASE_URL : str</text>
+<text xml:space="preserve" text-anchor="start" x="1320.35" y="-109.1" font-family="Times,serif" font-size="14.00">DEBUG : bool</text>
+<text xml:space="preserve" text-anchor="start" x="1320.35" y="-92.3" font-family="Times,serif" font-size="14.00">SECRET_KEY : str</text>
+<text xml:space="preserve" text-anchor="start" x="1320.35" y="-75.5" font-family="Times,serif" font-size="14.00">case_sensitive : ClassVar[bool]</text>
+<text xml:space="preserve" text-anchor="start" x="1320.35" y="-58.7" font-family="Times,serif" font-size="14.00">env_file : ClassVar[str]</text>
+<polyline fill="none" stroke="black" points="1312.35,-50.5 1504.86,-50.5"/>
+<text xml:space="preserve" text-anchor="start" x="1406.86" y="-33.9" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.models.User -->
+<g id="node13" class="node">
+<title>app.models.User</title>
+<polygon fill="none" stroke="black" points="1522.91,-0.5 1522.91,-242.9 1742.31,-242.9 1742.31,-0.5 1522.91,-0.5"/>
+<text xml:space="preserve" text-anchor="start" x="1619.39" y="-226.3" font-family="Times,serif" font-size="14.00">User</text>
+<polyline fill="none" stroke="black" points="1522.91,-218.1 1742.31,-218.1"/>
+<text xml:space="preserve" text-anchor="start" x="1530.91" y="-201.5" font-family="Times,serif" font-size="14.00">bio : Mapped[str | None]</text>
+<text xml:space="preserve" text-anchor="start" x="1530.91" y="-184.7" font-family="Times,serif" font-size="14.00">comments</text>
+<text xml:space="preserve" text-anchor="start" x="1530.91" y="-167.9" font-family="Times,serif" font-size="14.00">created_at : Mapped[datetime]</text>
+<text xml:space="preserve" text-anchor="start" x="1530.91" y="-151.1" font-family="Times,serif" font-size="14.00">email : Mapped[str]</text>
+<text xml:space="preserve" text-anchor="start" x="1530.91" y="-134.3" font-family="Times,serif" font-size="14.00">friends</text>
+<text xml:space="preserve" text-anchor="start" x="1530.91" y="-117.5" font-family="Times,serif" font-size="14.00">full_name : Mapped[str]</text>
+<text xml:space="preserve" text-anchor="start" x="1530.91" y="-100.7" font-family="Times,serif" font-size="14.00">id : Mapped[int]</text>
+<text xml:space="preserve" text-anchor="start" x="1530.91" y="-83.9" font-family="Times,serif" font-size="14.00">is_admin : Mapped[bool]</text>
+<text xml:space="preserve" text-anchor="start" x="1530.91" y="-67.1" font-family="Times,serif" font-size="14.00">posts</text>
+<text xml:space="preserve" text-anchor="start" x="1530.91" y="-50.3" font-family="Times,serif" font-size="14.00">profile_picture : Mapped[str | None]</text>
+<text xml:space="preserve" text-anchor="start" x="1530.91" y="-33.5" font-family="Times,serif" font-size="14.00">username : Mapped[str]</text>
+<polyline fill="none" stroke="black" points="1522.91,-25.3 1742.31,-25.3"/>
+<text xml:space="preserve" text-anchor="start" x="1630.86" y="-8.7" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.UserBase -->
+<g id="node14" class="node">
+<title>app.schemas.UserBase</title>
+<polygon fill="none" stroke="black" points="215.41,-639.1 215.41,-797.5 397.8,-797.5 397.8,-639.1 215.41,-639.1"/>
+<text xml:space="preserve" text-anchor="start" x="279.78" y="-780.9" font-family="Times,serif" font-size="14.00">UserBase</text>
+<polyline fill="none" stroke="black" points="215.41,-772.7 397.8,-772.7"/>
+<text xml:space="preserve" text-anchor="start" x="223.41" y="-756.1" font-family="Times,serif" font-size="14.00">bio : Optional[str]</text>
+<text xml:space="preserve" text-anchor="start" x="223.41" y="-739.3" font-family="Times,serif" font-size="14.00">email : Optional[EmailStr]</text>
+<text xml:space="preserve" text-anchor="start" x="223.41" y="-722.5" font-family="Times,serif" font-size="14.00">full_name : Optional[str]</text>
+<text xml:space="preserve" text-anchor="start" x="223.41" y="-705.7" font-family="Times,serif" font-size="14.00">is_admin : Optional[bool]</text>
+<text xml:space="preserve" text-anchor="start" x="223.41" y="-688.9" font-family="Times,serif" font-size="14.00">profile_picture : Optional[str]</text>
+<text xml:space="preserve" text-anchor="start" x="223.41" y="-672.1" font-family="Times,serif" font-size="14.00">username : Optional[str]</text>
+<polyline fill="none" stroke="black" points="215.41,-663.9 397.8,-663.9"/>
+<text xml:space="preserve" text-anchor="start" x="304.86" y="-647.3" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.UserCreate -->
+<g id="node15" class="node">
+<title>app.schemas.UserCreate</title>
+<polygon fill="none" stroke="black" points="255.12,-509.9 255.12,-584.3 334.09,-584.3 334.09,-509.9 255.12,-509.9"/>
+<text xml:space="preserve" text-anchor="start" x="263.12" y="-567.7" font-family="Times,serif" font-size="14.00">UserCreate</text>
+<polyline fill="none" stroke="black" points="255.12,-559.5 334.09,-559.5"/>
+<polyline fill="none" stroke="black" points="255.12,-534.7 334.09,-534.7"/>
+<text xml:space="preserve" text-anchor="start" x="292.86" y="-518.1" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.UserCreate&#45;&gt;app.schemas.UserBase -->
+<g id="edge6" class="edge">
+<title>app.schemas.UserCreate-&gt;app.schemas.UserBase</title>
+<path fill="none" stroke="black" d="M297.18,-584.4C298.09,-597.21 299.16,-612.25 300.24,-627.51"/>
+<polygon fill="none" stroke="black" points="296.72,-627.4 300.92,-637.13 303.7,-626.91 296.72,-627.4"/>
+</g>
+<!-- app.schemas.UserResponse&#45;&gt;app.schemas.UserBase -->
+<g id="edge7" class="edge">
+<title>app.schemas.UserResponse-&gt;app.schemas.UserBase</title>
+<path fill="none" stroke="black" d="M395.14,-601.17C388.19,-610.3 380.79,-620 373.36,-629.75"/>
+<polygon fill="none" stroke="black" points="370.73,-627.42 367.45,-637.5 376.3,-631.67 370.73,-627.42"/>
+</g>
+<!-- app.schemas.UserUpdate -->
+<g id="node17" class="node">
+<title>app.schemas.UserUpdate</title>
+<polygon fill="none" stroke="black" points="1760.41,-50.9 1760.41,-192.5 1942.8,-192.5 1942.8,-50.9 1760.41,-50.9"/>
+<text xml:space="preserve" text-anchor="start" x="1818.18" y="-175.9" font-family="Times,serif" font-size="14.00">UserUpdate</text>
+<polyline fill="none" stroke="black" points="1760.41,-167.7 1942.8,-167.7"/>
+<text xml:space="preserve" text-anchor="start" x="1768.41" y="-151.1" font-family="Times,serif" font-size="14.00">bio : Optional[str]</text>
+<text xml:space="preserve" text-anchor="start" x="1768.41" y="-134.3" font-family="Times,serif" font-size="14.00">email : Optional[EmailStr]</text>
+<text xml:space="preserve" text-anchor="start" x="1768.41" y="-117.5" font-family="Times,serif" font-size="14.00">full_name : Optional[str]</text>
+<text xml:space="preserve" text-anchor="start" x="1768.41" y="-100.7" font-family="Times,serif" font-size="14.00">profile_picture : Optional[str]</text>
+<text xml:space="preserve" text-anchor="start" x="1768.41" y="-83.9" font-family="Times,serif" font-size="14.00">username : Optional[str]</text>
+<polyline fill="none" stroke="black" points="1760.41,-75.7 1942.8,-75.7"/>
+<text xml:space="preserve" text-anchor="start" x="1849.86" y="-59.1" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.UserWithFriends -->
+<g id="node18" class="node">
+<title>app.schemas.UserWithFriends</title>
+<polygon fill="none" stroke="black" points="344.6,-314.5 344.6,-405.7 526.61,-405.7 526.61,-314.5 344.6,-314.5"/>
+<text xml:space="preserve" text-anchor="start" x="387.39" y="-389.1" font-family="Times,serif" font-size="14.00">UserWithFriends</text>
+<polyline fill="none" stroke="black" points="344.6,-380.9 526.61,-380.9"/>
+<text xml:space="preserve" text-anchor="start" x="352.6" y="-364.3" font-family="Times,serif" font-size="14.00">friends : List['UserResponse']</text>
+<text xml:space="preserve" text-anchor="start" x="352.6" y="-347.5" font-family="Times,serif" font-size="14.00">model_config : ConfigDict</text>
+<polyline fill="none" stroke="black" points="344.6,-339.3 526.61,-339.3"/>
+<text xml:space="preserve" text-anchor="start" x="433.86" y="-322.7" font-family="Times,serif" font-size="14.00"> </text>
+</g>
+<!-- app.schemas.UserWithFriends&#45;&gt;app.schemas.UserResponse -->
+<g id="edge8" class="edge">
+<title>app.schemas.UserWithFriends-&gt;app.schemas.UserResponse</title>
+<path fill="none" stroke="black" d="M435.61,-405.88C435.61,-428.6 435.61,-456.61 435.61,-481.61"/>
+<polygon fill="none" stroke="black" points="432.11,-481.34 435.61,-491.34 439.11,-481.34 432.11,-481.34"/>
+</g>
+</g>
+</svg>
