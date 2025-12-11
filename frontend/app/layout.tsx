@@ -28,6 +28,17 @@ export default function RootLayout({
             <Navbar />
             {children}
             <CreatePostButton />
+            <footer className="flex flex-row items-center justify-center gap-2 py-4 text-sm text-gray-400">
+              <span>By Kevin Tolbert</span>
+              <a 
+                href="https://github.com/asinthelol/social-networking-app" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 underline"
+              >
+                https://github.com/asinthelol/social-networking-app
+              </a>
+            </footer>
           </ReduxProvider>
         </ThemeProvider>
       </body>
