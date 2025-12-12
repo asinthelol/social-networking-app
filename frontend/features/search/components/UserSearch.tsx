@@ -104,7 +104,7 @@ export function UserSearch({ query }: UserSearchProps) {
                 </p>
               </Card>
             ) : (
-              <div className="space-y-4">
+              <div className="flex flex-col gap-y-4">
                 {users.map((user) => (
                   <Card
                     key={user.id}
