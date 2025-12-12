@@ -50,11 +50,11 @@ export function ProfileHeader({ userData, onProfilePictureChange, onLogout }: Pr
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-2">
               <h1 className="text-2xl font-bold">{userData?.username || "User"}</h1>
-              {userData?.is_admin && (
+              {userData?.is_admin ? (
                 <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
                   ADMIN
                 </span>
-              )}
+              ) : null}
             </div>
             <p className="text-sm text-muted-foreground mb-1">{userData?.email}</p>
             <p className="text-sm text-muted-foreground">{userData?.bio || "No bio yet"}</p>

@@ -61,7 +61,7 @@ export function OtherUserHeader({
 
         {isLoggedIn && (
           <div className="flex-shrink-0 flex gap-2">
-            {currentUser?.is_admin && onDeleteUser && (
+            {currentUser?.is_admin && onDeleteUser ? (
               <Button
                 variant="destructive"
                 onClick={onDeleteUser}
@@ -74,7 +74,7 @@ export function OtherUserHeader({
                 )}
                 Delete Account
               </Button>
-            )}
+            ) : null}
             {isFriend ? (
               <Button
                 variant="outline"
