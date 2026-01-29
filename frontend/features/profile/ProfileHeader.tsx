@@ -26,7 +26,7 @@ export function ProfileHeader({ userData, onProfilePictureChange, onLogout }: Pr
         <div className="flex items-start gap-6 w-full md:full">
           {/* Profile Picture */}
           <div 
-            className="relative cursor-pointer group flex-shrink-0"
+            className="relative cursor-pointer group shrink-0"
             onClick={handleProfilePictureClick}
           >
             <div className="w-24 h-24 rounded-full bg-muted overflow-hidden">

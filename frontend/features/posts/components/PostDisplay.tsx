@@ -16,7 +16,7 @@ export function PostDisplay({ post, formatDate }: PostDisplayProps) {
       <div className="flex items-start gap-3">
         <button
           onClick={() => router.push(`/profile/${post.user_id}`)}
-          className="w-10 h-10 rounded-full bg-muted overflow-hidden flex-shrink-0 hover:opacity-80 transition-opacity"
+          className="w-10 h-10 rounded-full bg-muted overflow-hidden shrink-0 hover:opacity-80 transition-opacity"
         >
           {post.author.profile_picture && (
             <img
@@ -40,7 +40,7 @@ export function PostDisplay({ post, formatDate }: PostDisplayProps) {
             </p>
           </div>
 
-          <p className="text-sm whitespace-pre-wrap break-words mb-3">
+          <p className="text-sm whitespace-pre-wrap wrap-break-word mb-3">
             {post.content}
           </p>
 

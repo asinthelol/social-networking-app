@@ -84,7 +84,7 @@ export function FriendsTab({ userId }: FriendsTabProps) {
                 className="flex items-center gap-4 flex-1 min-w-0 cursor-pointer"
                 onClick={() => router.push(`/profile/${friend.id}`)}
               >
-                <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center overflow-hidden flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center overflow-hidden shrink-0">
                   {friend.profile_picture ? (
                     <img
                       src={`${BACKEND_URL}${friend.profile_picture}`}
@@ -113,7 +113,7 @@ export function FriendsTab({ userId }: FriendsTabProps) {
                   handleRemoveFriend(friend.id);
                 }}
                 disabled={removingFriendId === friend.id}
-                className="flex-shrink-0"
+                className="shrink-0"
               >
                 {removingFriendId === friend.id ? (
                   <Loader2 className="w-4 h-4 animate-spin" />

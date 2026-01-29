@@ -34,7 +34,7 @@ export function OtherUserHeader({
   return (
     <Card className="p-6">
       <div className="flex items-start gap-6">
-        <div className="w-24 h-24 rounded-full bg-muted overflow-hidden flex-shrink-0">
+        <div className="w-24 h-24 rounded-full bg-muted overflow-hidden shrink-0">
           {userData.profile_picture && (
             <img
               src={`${BACKEND_URL}${userData.profile_picture}`}
@@ -60,7 +60,7 @@ export function OtherUserHeader({
         </div>
 
         {isLoggedIn && (
-          <div className="flex-shrink-0 flex gap-2">
+          <div className="shrink-0 flex gap-2">
             {currentUser?.is_admin && onDeleteUser ? (
               <Button
                 variant="destructive"

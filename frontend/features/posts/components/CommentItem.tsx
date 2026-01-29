@@ -27,7 +27,7 @@ export function CommentItem({
       <div className="flex items-start gap-3">
         <button
           onClick={() => router.push(`/profile/${comment.user_id}`)}
-          className="w-8 h-8 rounded-full bg-muted overflow-hidden flex-shrink-0 hover:opacity-80 transition-opacity"
+          className="w-8 h-8 rounded-full bg-muted overflow-hidden shrink-0 hover:opacity-80 transition-opacity"
         >
           {comment.author.profile_picture && (
             <img
@@ -67,7 +67,7 @@ export function CommentItem({
               </Button>
             )}
           </div>
-          <p className="text-sm whitespace-pre-wrap break-words">
+          <p className="text-sm whitespace-pre-wrap wrap-break-word">
             {comment.content}
           </p>
         </div>

@@ -74,7 +74,7 @@ export function UserSearch({ query }: UserSearchProps) {
 
   return (
     <div className="min-h-screen flex items-start justify-center pt-8">
-      <div className="flex flex-col gap-y-4 w-full max-w-[40rem] mx-auto px-4">
+      <div className="flex flex-col gap-y-4 w-full max-w-160 mx-auto px-4">
         <h1 className="text-2xl font-bold mb-2">
           {query ? `Search results for "${query}"` : "Search"}
         </h1>
@@ -112,7 +112,7 @@ export function UserSearch({ query }: UserSearchProps) {
                     onClick={() => handleUserClick(user.id)}
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-muted overflow-hidden flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-muted overflow-hidden shrink-0">
                         {user.profile_picture && (
                           <img
                             src={`${BACKEND_URL}${user.profile_picture}`}

@@ -47,7 +47,7 @@ export function PostCard({ post, onDelete, isDeleting, currentUser }: PostCardPr
       onClick={handleCardClick}
     >
       <div className="flex items-start gap-3">
-        <div className="w-10 h-10 rounded-full bg-muted overflow-hidden flex-shrink-0">
+        <div className="w-10 h-10 rounded-full bg-muted overflow-hidden shrink-0">
           {post.author.profile_picture && (
             <img
               src={`${BACKEND_URL}${post.author.profile_picture}`}
@@ -83,7 +83,7 @@ export function PostCard({ post, onDelete, isDeleting, currentUser }: PostCardPr
             )}
           </div>
 
-          <p className="text-sm whitespace-pre-wrap break-words mb-3">{post.content}</p>
+          <p className="text-sm whitespace-pre-wrap wrap-break-word mb-3">{post.content}</p>
 
           {post.image_url && (
             <div className="rounded-lg overflow-hidden">

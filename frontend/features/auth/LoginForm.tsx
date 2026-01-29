@@ -80,21 +80,22 @@ export function LoginForm() {
                 placeholder="Enter your password"
                 required
               />
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-x-2">
-                <input
-                  id="remember"
-                  type="checkbox"
-                  className="rounded border-gray-300"
-                />
-                <Label htmlFor="remember" className="text-sm font-normal cursor-pointer">
-                  Remember me
-                </Label>
+
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-x-2">
+                  <input
+                    id="remember"
+                    type="checkbox"
+                    className="rounded border-gray-300"
+                  />
+                  <Label htmlFor="remember" className="text-sm font-normal cursor-pointer">
+                    Remember me
+                  </Label>
+                </div>
+                <Link href="#" className="text-sm text-primary hover:underline">
+                  Forgot password?
+                </Link>
               </div>
-              <Link href="#" className="text-sm text-primary hover:underline">
-                Forgot password?
-              </Link>
             </div>
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading ? "Signing in..." : "Sign in"}

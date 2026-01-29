@@ -116,7 +116,7 @@ export default function ProfilePage() {
 
   return (
     <div className="min-h-screen flex items-start justify-center pt-8">
-      <div className="flex flex-col gap-y-4 w-full max-w-[40rem] mx-auto px-4">
+      <div className="flex flex-col gap-y-4 w-full max-w-160 mx-auto px-4">
         <ProfileHeader
           userData={userData}
           onProfilePictureChange={handleProfilePictureChange}

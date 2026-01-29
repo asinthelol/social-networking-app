@@ -34,7 +34,7 @@ export default function Home() {
         const data = await getAllPosts();
         setPosts(data);
       } else {
-        // Friends tab - get posts from friends only
+        // Friends tab
         if (!userId) {
           setPosts([]);
           return;
@@ -74,8 +74,8 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex items-start justify-center pt-8">
-      <div className="flex flex-col gap-y-4 w-full max-w-[40rem] mx-auto px-4">
+    <main className="min-h-screen flex items-start justify-center pt-8">
+      <div className="flex flex-col gap-y-4 w-full max-w-160 mx-auto px-4">
         {/* Tab Switcher */}
         <div className="flex gap-2 border-b">
           <Button
@@ -108,11 +108,6 @@ export default function Home() {
           </div>
         ) : (
           <>
-            {error && (
-              <div className="bg-destructive/15 text-destructive text-sm p-3 rounded-md">
-                {error}
-              </div>
-            )}
 
             {posts.length === 0 ? (
               <Card className="p-6">
@@ -134,6 +129,6 @@ export default function Home() {
           </>
         )}
       </div>
-    </div>
+    </main>
   );
 }

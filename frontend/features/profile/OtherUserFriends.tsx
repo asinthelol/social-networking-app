@@ -27,7 +27,7 @@ export function OtherUserFriends({ friends }: OtherUserFriendsProps) {
               className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg hover:bg-muted transition-colors cursor-pointer"
               onClick={() => router.push(`/profile/${friend.id}`)}
             >
-              <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center overflow-hidden flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center overflow-hidden shrink-0">
                 {friend.profile_picture ? (
                   <img
                     src={`${BACKEND_URL}${friend.profile_picture}`}

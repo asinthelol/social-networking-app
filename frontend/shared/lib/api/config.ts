@@ -1,2 +1,3 @@
-export const API_BASE_URL = "http://34.239.175.69:8000/api";
-export const BACKEND_URL = "http://34.239.175.69:8000";
+
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+export const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3000";
