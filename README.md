@@ -18,14 +18,26 @@ cd backend
 pip install -r requirements.txt
 ```
 
-3. Install frontend dependencies
+3. Set up the database
+
+The database is automatically created when you first run the backend. Tables are created using SQLAlchemy models.
+
+For local development, a SQLite database (`database.db`) will be created in the backend directory.
+
+For production (AWS RDS MySQL), set the `DATABASE_URL` environment variable in your `.env` file:
+
+```
+DATABASE_URL=mysql+pymysql://username:password@host:3306/database_name
+```
+
+4. Install frontend dependencies
 
 ```bash
 cd ../frontend
 npm install
 ```
 
-4. Run the backend
+5. Run the backend
 
 ```bash
 cd ../backend
@@ -34,7 +46,7 @@ uvicorn app.main:app --reload
 
 Backend runs on [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-5. Run the frontend (in a new terminal)
+6. Run the frontend (in a new terminal)
 
 ```bash
 cd frontend
