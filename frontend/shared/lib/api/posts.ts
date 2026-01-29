@@ -26,7 +26,7 @@ export interface UpdatePostRequest {
  * Get all posts
  */
 export async function getAllPosts(skip: number = 0, limit: number = 100): Promise<PostResponse[]> {
-  const response = await fetch(`${API_BASE_URL}/posts?skip=${skip}&limit=${limit}`);
+  const response = await fetch(`${API_BASE_URL}/posts/?skip=${skip}&limit=${limit}`);
 
   if (!response.ok) {
     const error = await response.json();

@@ -29,7 +29,7 @@ export function CommentItem({
           onClick={() => router.push(`/profile/${comment.user_id}`)}
           className="w-8 h-8 rounded-full bg-muted overflow-hidden shrink-0 hover:opacity-80 transition-opacity"
         >
-          {comment.author.profile_picture && (
+          {comment.author?.profile_picture && (
             <img
               src={`${BACKEND_URL}${comment.author.profile_picture}`}
               alt={comment.author.username}
@@ -45,7 +45,7 @@ export function CommentItem({
                 onClick={() => router.push(`/profile/${comment.user_id}`)}
                 className="font-semibold text-sm hover:underline"
               >
-                {comment.author.username}
+                {comment.author?.username || "Unknown User"}
               </button>
               <p className="text-xs text-muted-foreground">
                 {formatDate(comment.created_at)}
